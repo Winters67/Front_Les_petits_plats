@@ -1,81 +1,72 @@
-
-
-
-
 body {
-    margin:  40px
+  margin: 40px;
 }
 
 .logo {
-color: #D04F4F;
-display: flex;
-flex-direction: column;
-align-items: center;
-margin: 40px 0px 20px 0px;
+  color: #d04f4f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0px 20px 0px;
 }
 
 /* Recherche de recette */
 .input-group {
-    height: 69px;
-
+  height: 69px;
 }
 .input-search {
-    position: relative;
+  position: relative;
   display: flex;
-align-items: center;
-border-radius: 5px;
-padding: 10px;
+  align-items: center;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 /* menu select */
 
-.select-choix{
-    padding-top: 20px;
+.select-choix {
+  padding-top: 20px;
 }
 
 .browser-default {
-    height: 69px;
-    width: 170px;
-    color: #ffff;
-    border-radius: 5px;
-    align-items: center;
-    padding-left: 15px;
-    font-weight: 700;
-    font-size: 14px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: url("/assets/icons/dropdown.png" ) 90% / 7% no-repeat;
-    
+  height: 69px;
+  width: 170px;
+  color: #ffff;
+  border-radius: 5px;
+  align-items: center;
+  padding-left: 15px;
+  font-weight: 700;
+  font-size: 14px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("/assets/icons/dropdown.png") 90% / 7% no-repeat;
 }
 
 #ingredients {
-background-color: #3282F7;
-
+  background-color: #3282f7;
 }
 #appareils {
-  background-color: #68D9A4; 
-  
+  background-color: #68d9a4;
 }
 #ustensiles {
-background-color: #ED6454;
+  background-color: #ed6454;
 }
 
 /* card */
 
- .card-img-top {
-    object-fit: cover;
-    height: 178px ;
- }
-
- .card-title{
-    display: flex;
-    justify-content: space-between;
- }
-.card-time {
-    display: flex;
+.card-img-top {
+  object-fit: cover;
+  height: 178px;
 }
-.card-recette{
-    display: flex;
-    
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+}
+.card-time {
+  display: flex;
+}
+.card-recette {
+  display: flex;
 }
