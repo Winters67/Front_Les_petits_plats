@@ -41,19 +41,23 @@
 
     <!-- bouton select  -->
     <section class="select-choix row">
-      <select class="browser-default custom-select" id="ingredients">
-        <option selected>Ingredients</option>
-        <option value="1">One</option>
-      </select>
+      <select class="browser-default custom-select" id="ingredients" >
+        <option  placeholder="Ingredients" selected>Ingredients</option>
+        <!-- <div class="content">
+         <div class="search">
+            <input type="text" placeholder="Rechercher un ingrédient" />
+          </div> -->
+        </select>
+      </div>
 
       <select class="browser-default custom-select" id="appareils">
         <option selected>Appareils</option>
-        <option value="1">One</option>
+        <!-- <input type="text" placeholder="Rechercher un appareils" /> -->
       </select>
 
       <select class="browser-default custom-select" id="ustensiles">
         <option selected>Ustensiles</option>
-        <option value="1">One</option>
+        <!-- <input type="text" placeholder="Rechercher un appareils" /> -->
       </select>
       <div class="select-bouton"></div>
     </section>
@@ -62,5 +66,7 @@
     <section id="card-item" class="row"></section>
   </body>
   <script src="/scripts/index.js" type="module"></script>
+  <script src="/scripts/search.js" type="module"></script>
   <script src="/data/recipes.js" type="module"></script>
+  
 </html>

@@ -3,8 +3,10 @@ export { showCard };
 function showCard(recette) {
   const clock = `/assets/icons/clock-regular.svg`;
   const picture = `/assets/images/wendy.jpg`;
+  const displayCards = document.createElement("div");
+  displayCards.setAttribute("class", "displayCards");
   const recetteCard = document.createElement("div");
-  recetteCard.setAttribute("class", "recette card");
+  recetteCard.setAttribute("class", "recette card bg-light");
   const imgCard = document.createElement("img");
   imgCard.setAttribute("class", "image card-img-top");
   imgCard.setAttribute("src", picture);
@@ -29,16 +31,17 @@ function showCard(recette) {
   descriptionRecette.setAttribute("class", "card-text w-50");
   descriptionRecette.textContent = recette.description;
 
+  // affichage des Ingredients dans les cartes
   const listIngredients = document.createElement("div");
-  listIngredients.setAttribute('style', 'padding-right:10px')
+  listIngredients.setAttribute("style", "padding-right:10px");
   for (const recetteIng of recette.ingredients) {
     let div = document.createElement("div");
     div.setAttribute("class", "card-ingredients w-25");
-    
+
     let ingredient = document.createElement("p");
     ingredient.setAttribute("style", "font-weight: 700");
-    ingredient.textContent = recetteIng.ingredient +":"; 
-    
+    ingredient.textContent = recetteIng.ingredient + ":";
+
     let quantity = document.createElement("p");
     quantity.textContent = recetteIng.quantity;
 
@@ -46,13 +49,12 @@ function showCard(recette) {
     unit.setAttribute("class", "unity");
     unit.textContent = recetteIng.unit;
 
-
     listIngredients.appendChild(div);
     div.appendChild(ingredient);
     div.appendChild(quantity);
     div.appendChild(unit);
   }
-
+  displayCards.appendChild(recetteCard);
   recetteCard.appendChild(imgCard);
   recetteCard.appendChild(descriptionCard);
   descriptionCard.appendChild(cardTitle);
@@ -64,5 +66,5 @@ function showCard(recette) {
   cardTime.appendChild(recetteTime);
   cardTime.appendChild(recetteTimeDesc);
 
-  return recetteCard;
+  return displayCards;
 }

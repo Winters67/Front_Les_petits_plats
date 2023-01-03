@@ -60,16 +60,24 @@ body {
 
 /* card */
 
-.recette {
+.displayCards {
   display: flex;
-  margin: 40px;
+  margin: 50px;
   padding: 0;
   max-height: 364px;
   max-width: 380px;
-
-.description {
-  padding: 15px;
 }
+
+.recette {
+ 
+  
+  
+  .description {
+    padding: 0;
+    margin:0px 5px 5px  10px;
+    height: 100%;
+   
+  }
 
   .card-title {
     display: flex;
@@ -87,19 +95,18 @@ body {
 
     p {
       font-size: 12px;
-      line-height: 14.4px;
-  
+      line-height: 12px;
+
       margin-left: 2px;
-     margin: 0;
-     padding: 0;
-     -webkit-line-clamp: 7;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    font-family: $font-lato;  
+      margin: 0;
+      padding: 0;
+      -webkit-line-clamp: 7;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      font-family: $font-lato;
     }
     .unity {
       font-size: 12px;
-  
     }
   }
 
