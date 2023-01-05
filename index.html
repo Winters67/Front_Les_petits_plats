@@ -13,8 +13,7 @@
     />
     <link rel="stylesheet" href="style/style.css" />
     <script
-      src="https://kit.fontawesome.com/d1c79fd7f4.js"
-      crossorigin="anonymous"
+      src=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js
     ></script>
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <title>Les petits plats</title>
@@ -38,35 +37,71 @@
         <i class="fa fa-search fa-lg"></i>
       </span>
     </div>
-
     <!-- bouton select  -->
-    <section class="select-choix row">
-      <select class="browser-default custom-select" id="ingredients" >
-        <option  placeholder="Ingredients" selected>Ingredients</option>
-        <!-- <div class="content">
-         <div class="search">
-            <input type="text" placeholder="Rechercher un ingrédient" />
-          </div> -->
-        </select>
+    <!-- ingredients -->
+    <section class="nav">
+    <div class="select-choix-ing ">
+      <div class="select-btn-ing">
+        <span>Ingredients</span>
+        <i class="fa-solid fa-chevron-down"></i>
+    </div>
+      <div class="browser-default custom-select" id="ingredients">
+
+        <div class="content">
+          <div class="search-design">
+            <input class="input-ing" type="text" placeholder="Rechercher un ingrédient" />
+            <div class="closeModal-ing">
+            <i class="fa-solid fa-chevron-up"></i>
+           </div>
+          </div>
+        </div>
+        <ul class="listOption-ing"></ul>
       </div>
+    </div>
+      <!-- appareils -->
+      <div class="select-choix-app ">
+        <div class="select-btn-app">
+          <span>Appareils</span>
+          <i class="fa-solid fa-chevron-down"></i>
+      </div>
+        <div class="browser-default custom-select" id="appareils">
+  
+          <div class="content">
+            <div class="search-design">
+              <input class="input-app" type="text" placeholder="Rechercher un appareil" />
+              <div class="closeModal-app">
+              <i class="fa-solid fa-chevron-up"></i>
+             </div>
+            </div>
+          </div>
+          <ul class="listOption-app"></ul>
+        </div>
+      </div>
+<!-- ustensiles -->
+<div class="select-choix-ust ">
+  <div class="select-btn-ust">
+    <span>Ustensiles</span>
+    <i class="fa-solid fa-chevron-down"></i>
+</div>
+  <div class="browser-default custom-select" id="ustensiles">
+    <div class="content">
+      <div class="search-design">
+        <input class="input-ust" type="text" placeholder="Rechercher un ustensile" />
+        <div class="closeModal-ust">
+        <i class="fa-solid fa-chevron-up"></i>
+      </div>
+      </div>
+    
+  </div>
+  <ul class="listOption-ust"></ul>
+</div>
 
-      <select class="browser-default custom-select" id="appareils">
-        <option selected>Appareils</option>
-        <!-- <input type="text" placeholder="Rechercher un appareils" /> -->
-      </select>
-
-      <select class="browser-default custom-select" id="ustensiles">
-        <option selected>Ustensiles</option>
-        <!-- <input type="text" placeholder="Rechercher un appareils" /> -->
-      </select>
-      <div class="select-bouton"></div>
-    </section>
-  </nav>
-  <body>
-    <section id="card-item" class="row"></section>
-  </body>
+</section>
+</nav>
+<body>
+<section id="card-item" class="row"></section>
+</body>
   <script src="/scripts/index.js" type="module"></script>
   <script src="/scripts/search.js" type="module"></script>
   <script src="/data/recipes.js" type="module"></script>
-  
 </html>

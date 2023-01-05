@@ -9,9 +9,6 @@ const tags = {
 };
 console.log(tags);
 
-
-
-
 // boucle recette
 recipes.forEach((recette) => {
   // console.log(recette);
@@ -20,7 +17,8 @@ recipes.forEach((recette) => {
   function filtre(recette) {
     // indgredients[] enleve les doublons
     for (const ingredientList of recette.ingredients) {
-      if (!tags.ingredients.includes(ingredientList)) {
+      if (!tags.ingredients.includes(ingredientList.ingredient)) {
+        // console.log(ingredientList);
         tags.ingredients.push(ingredientList.ingredient);
       }
       // appareils[] enleve les doublons
@@ -31,6 +29,7 @@ recipes.forEach((recette) => {
       // unstensiles[] enleve les doublons
       for (const listeUstensiles of recette.ustensils) {
         if (!tags.ustensils.includes(listeUstensiles)) {
+          // console.log(listeUstensiles);
           tags.ustensils.push(listeUstensiles);
         }
       }
@@ -45,28 +44,61 @@ recipes.forEach((recette) => {
   displayCard.appendChild(showCard(recette));
 });
 
-// affichage menu select
+// affichage des items dans le menu
 for (const optionIngredients of tags.ingredients) {
-  const selectIngredients = document.getElementById("ingredients");
-  let option = document.createElement("option");
-  option.text = optionIngredients;
-  option.value = optionIngredients;
-  // console.log(optionIngredients);
+  const selectIngredients = document.querySelector(".listOption-ing");
+  let option = document.createElement("li");
+  option.setAttribute("class", "listItem");
+  option.textContent = optionIngredients;
   selectIngredients.appendChild(option);
 }
 
 for (const optionIngredients of tags.appliances) {
-  const selectAppliances = document.getElementById("appareils");
-  let option = document.createElement("option");
-  option.text = optionIngredients;
-  option.value = optionIngredients;
-  selectAppliances.appendChild(option);
+  const selectAppliance = document.querySelector(".listOption-app");
+  let option = document.createElement("li");
+  option.setAttribute("class", "listItem");
+  option.textContent = optionIngredients;
+  selectAppliance.appendChild(option);
 }
 
 for (const optionIngredients of tags.ustensils) {
-  const selectUstensiles = document.getElementById("ustensiles");
-  let option = document.createElement("option");
-  option.text = optionIngredients;
-  option.value = optionIngredients;
+  const selectUstensiles = document.querySelector(".listOption-ust");
+  let option = document.createElement("li");
+  option.setAttribute("class", "listItem");
+  option.textContent = optionIngredients;
   selectUstensiles.appendChild(option);
 }
+
+// menu
+const wrapperIng = document.querySelector(".select-choix-ing");
+const wrapperApp = document.querySelector(".select-choix-app");
+const wrapperUst = document.querySelector(".select-choix-ust");
+
+const selectBtnIng = wrapperIng.querySelector(".select-btn-ing");
+const selectBtnApp = wrapperApp.querySelector(".select-btn-app");
+const selectBtnUst = wrapperUst.querySelector(".select-btn-ust");
+
+const closeModalIng = document.querySelector(".closeModal-ing");
+const closeModalApp = document.querySelector(".closeModal-app");
+const closeModalUst = document.querySelector(".closeModal-ust");
+console.log(closeModalIng);
+
+selectBtnIng.addEventListener("click", () => {
+  wrapperIng.classList.toggle("active");
+});
+selectBtnApp.addEventListener("click", () => {
+  wrapperApp.classList.toggle("active");
+});
+selectBtnUst.addEventListener("click", () => {
+  wrapperUst.classList.toggle("active");
+});
+
+closeModalIng.addEventListener("click", () => {
+  wrapperIng.classList.remove("active");
+});
+closeModalApp.addEventListener("click", () => {
+  wrapperApp.classList.remove("active");
+});
+closeModalUst.addEventListener("click", () => {
+  wrapperUst.classList.remove("active");
+});

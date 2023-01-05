@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Roboto:wght@100;300;400;500;700&display=swap");
 body {
   font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .logo {
@@ -26,40 +28,179 @@ body {
 }
 
 /* menu select */
-.select-choix {
-  gap: 20px;
-  margin: 40px;
+.nav {
+  margin: 10px;
+  padding: 10px;
 }
 
-.browser-default {
-  height: 69px;
-  width: 170px;
-  color: white;
-  border-radius: 5px;
+.select-choix-ing,
+.select-choix-app,
+.select-choix-ust {
+  margin: 40px;
+}
+.select-choix-ing .select-btn-ing,
+.select-choix-ing .select-btn-app,
+.select-choix-ing .select-btn-ust,
+.select-choix-app .select-btn-ing,
+.select-choix-app .select-btn-app,
+.select-choix-app .select-btn-ust,
+.select-choix-ust .select-btn-ing,
+.select-choix-ust .select-btn-app,
+.select-choix-ust .select-btn-ust {
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding-left: 15px;
+  padding: 20px;
+  width: 170px;
+  height: 69px;
+  border-radius: 5px;
+}
+.select-choix-ing .select-btn-ing,
+.select-choix-app .select-btn-ing,
+.select-choix-ust .select-btn-ing {
+  background-color: #3282f7;
+}
+.select-choix-ing .select-btn-app,
+.select-choix-app .select-btn-app,
+.select-choix-ust .select-btn-app {
+  background-color: #68d9a4;
+}
+.select-choix-ing .select-btn-ust,
+.select-choix-app .select-btn-ust,
+.select-choix-ust .select-btn-ust {
+  background-color: #ed6454;
+}
+.select-choix-ing .search-design,
+.select-choix-app .search-design,
+.select-choix-ust .search-design {
+  display: flex;
+  color: #ffffff;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.select-choix-ing input,
+.select-choix-app input,
+.select-choix-ust input {
+  width: 100%;
+  border: none;
+  font-size: 18px;
+  color: #ffffff;
+}
+.select-choix-ing .input-ing,
+.select-choix-app .input-ing,
+.select-choix-ust .input-ing {
+  background-color: #3282f7;
+}
+.select-choix-ing .input-app,
+.select-choix-app .input-app,
+.select-choix-ust .input-app {
+  background-color: #68d9a4;
+}
+.select-choix-ing .input-ust,
+.select-choix-app .input-ust,
+.select-choix-ust .input-ust {
+  background-color: #ed6454;
+}
+.select-choix-ing input::-moz-placeholder, .select-choix-app input::-moz-placeholder, .select-choix-ust input::-moz-placeholder {
+  color: #ffffff;
+  opacity: 0.5;
   font-weight: 700;
-  font-size: 14px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: url("/assets/icons/dropdown.png") 90%/7% no-repeat;
+}
+.select-choix-ing input:-ms-input-placeholder, .select-choix-app input:-ms-input-placeholder, .select-choix-ust input:-ms-input-placeholder {
+  color: #ffffff;
+  opacity: 0.5;
+  font-weight: 700;
+}
+.select-choix-ing input::placeholder,
+.select-choix-app input::placeholder,
+.select-choix-ust input::placeholder {
+  color: #ffffff;
+  opacity: 0.5;
+  font-weight: 700;
+}
+.select-choix-ing input:focus,
+.select-choix-app input:focus,
+.select-choix-ust input:focus {
+  outline: none;
+}
+
+.listOption-ing,
+.listOption-app,
+.listOption-ust {
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  font-family: "Lato", sans-serif;
+  flex-wrap: wrap;
+  padding: 5px;
+  font-size: 18px;
+  line-height: 21.6px;
+  color: white;
+  list-style: none;
+  height: 300px;
+  width: 700px;
+  margin: 5px;
+}
+.listOption-ing .listItem,
+.listOption-app .listItem,
+.listOption-ust .listItem {
+  margin: 1px;
+  padding: 1px;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+}
+
+.closeModal-ing,
+.closeModal-app,
+.closeModal-ust {
+  margin: 5px;
 }
 
 #ingredients {
   background-color: #3282f7;
+  border-radius: 5px;
+  display: none;
+  position: absolute;
+  margin-top: -70px;
 }
 
 #appareils {
   background-color: #68d9a4;
+  border-radius: 5px;
+  display: none;
+  position: absolute;
+  margin-top: -70px;
 }
 
 #ustensiles {
   background-color: #ed6454;
+  border-radius: 5px;
+  display: none;
+  position: absolute;
+  margin-top: -70px;
+}
+
+.select-choix-ing.active #ingredients,
+.select-choix-app.active #appareils,
+.select-choix-ust.active #ustensiles {
+  display: block;
+  position: relative;
 }
 
 /* card */
+#card-item {
+  margin-top: 20px;
+  position: relative;
+}
+
 .displayCards {
+  position: relative;
   display: flex;
   margin: 50px;
   padding: 0;
@@ -139,4 +280,9 @@ body {
 }
 .description .ingredients {
   display: flex;
+}
+
+.alert {
+  width: auto;
+  height: auto;
 }/*# sourceMappingURL=style.css.map */
