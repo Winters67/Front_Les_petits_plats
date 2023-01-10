@@ -1,29 +1,28 @@
+import { recipes } from "../data/recipes.js";
+import { showCards } from "../scripts/card.js";
+
 const inputField = document.getElementById("search-input");
+inputField.addEventListener("keyup", filterData);
 
-inputField.addEventListener("input", (e) => {
-  const cards = document.querySelectorAll(".card-title");
+function filterData(e) {
+  let searchLetters = e.target.value.toLowerCase();
+  const searchLettersNunbers = searchLetters.length;
+  console.log(searchLetters);
+  if (searchLettersNunbers >= 3) {
+    let newTabRecipes = recipes.filter((ele) => {
+      return ele.description.toLowerCase().indexOf(searchLetters) >= 0;
+    });
+    console.log(newTabRecipes);
+    if (newTabRecipes != "" ) {
+      showCards(newTabRecipes);
+    } else showCards(recipes);
+  }
+}
 
-  // console.log(cards);
-  // console.log(displayCard);
-  // console.log(e);
-  let searchLetters = e.target.value;
+// condition de recherche + 3 caracteres
+//Function EventInput (Event input -> lancer search())
+//Function AddTags
 
-  cards.forEach((card) => {
-    if (card.textContent.toLowerCase().indexOf(searchLetters) >= 3) {
-      card.parentNode.parentNode.parentElement.setAttribute(
-        "style",
-        "display:block"
-      );
-    } else if (card.textContent.toLowerCase().indexOf(searchLetters) >= null) {
-      card.parentNode.parentNode.parentElement.setAttribute(
-        "style",
-        "display:block"
-      );
-    } else {
-      card.parentNode.parentNode.parentElement.setAttribute(
-        "style",
-        "display:none"
-      );
-    }
-  });
-});
+//Function Search (Créer un nouveau tableau de recette)
+
+//Lancer fonction showCards(NewTabRecipes)

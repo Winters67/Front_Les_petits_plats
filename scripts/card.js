@@ -1,4 +1,4 @@
-export { showCard };
+export { showCard, showCards };
 
 function showCard(recette) {
   const clock = `/assets/icons/clock-regular.svg`;
@@ -67,4 +67,12 @@ function showCard(recette) {
   cardTime.appendChild(recetteTimeDesc);
 
   return displayCards;
+}
+
+function showCards(arrayRecipes) {
+  const displayCard = document.querySelector("#card-item");
+  displayCard.innerHTML = "";
+  for (const recipe of arrayRecipes) {
+    displayCard.appendChild(showCard(recipe));
+  }
 }

@@ -29,8 +29,8 @@ body {
 
 /* menu select */
 .nav {
-  margin: 10px;
-  padding: 10px;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .select-choix-ing,
@@ -127,6 +127,22 @@ body {
   outline: none;
 }
 
+.tagItems {
+  background-color: #3282f7;
+  max-width: 100px;
+  margin: 5px;
+  display: flex;
+  height: auto;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 2px;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 14px;
+  margin: 30px 0px 5px 40px;
+}
+
 .listOption-ing,
 .listOption-app,
 .listOption-ust {
@@ -140,8 +156,8 @@ body {
   line-height: 21.6px;
   color: white;
   list-style: none;
-  height: 300px;
-  width: 700px;
+  max-height: 600px;
+  width: 100%;
   margin: 5px;
 }
 .listOption-ing .listItem,
@@ -168,6 +184,8 @@ body {
   display: none;
   position: absolute;
   margin-top: -70px;
+  max-height: 600px;
+  width: 100%;
 }
 
 #appareils {
@@ -186,11 +204,25 @@ body {
   margin-top: -70px;
 }
 
-.select-choix-ing.active #ingredients,
-.select-choix-app.active #appareils,
+.select-choix-app.active #appareils {
+  display: block;
+  position: relative;
+  width: 300px;
+  height: auto;
+}
+
 .select-choix-ust.active #ustensiles {
   display: block;
   position: relative;
+  width: 600px;
+  height: auto;
+}
+
+.select-choix-ing.active #ingredients {
+  display: block;
+  position: relative;
+  width: 1300px;
+  height: auto;
 }
 
 /* card */
