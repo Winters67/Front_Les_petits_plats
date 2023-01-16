@@ -6,7 +6,6 @@ export const tags = {
   ustensils: [],
 };
 console.log(tags);
-let newTagsArray = [];
 
 export function filtre(recipes) {
   recipes.forEach((recette) => {
@@ -38,18 +37,31 @@ export function showTag(tagsList, classBoxTag) {
     let optionElt = document.createElement("li");
     optionElt.setAttribute("class", "listItem");
     optionElt.textContent = option;
+    //Enventlistener (Add_tag)
     select.appendChild(optionElt);
+    optionElt.addEventListener("click", addTag(optionElt));
   }
 }
 
+function addTag(item) {
+  if (item =='') {
+    item.classList.toggle("addItem");
+  } else item.classList.remove("addItem");
+}
+//Fucntion add_tag (Event -> close tag)
+
+//function close_tag
+
 const inputTags = document.querySelector(".input-ing");
 inputTags.addEventListener("input", filterTags);
+
 function filterTags(e) {
+  document.querySelector(".listOption-ing").innerHTML = " ";
   let searchLetters = e.target.value.toLowerCase();
   console.log(searchLetters);
-  newTagsArray = tags.ingredients.filter((ele) => {
-    console.log(newTagsArray);
-    return ele.toLowerCase().indexOf(searchLetters) >= 0;
-  }); 
+  let newTagsArray = tags.ingredients.filter((data) => {
+    return data.toLowerCase().includes(searchLetters);
+  });
+  console.log(newTagsArray);
+  showTag(newTagsArray, ".listOption-ing");
 }
-

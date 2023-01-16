@@ -20,7 +20,6 @@ const selectBtnUst = document.querySelector(".select-btn-ust");
 
 const closeModal = document.querySelectorAll(".closeModal");
 
-
 activeClass(selectBtnIng, ".select-choix-ing");
 activeClass(selectBtnApp, ".select-choix-app");
 activeClass(selectBtnUst, ".select-choix-ust");
@@ -31,11 +30,10 @@ function activeClass(selectBtn, classTag) {
     select.classList.toggle("active");
     closeModal.forEach((element) => {
       element.addEventListener("click", () => {
-        if(select.classList.toggle("active")== true){
+        if (select.classList.toggle("active") == true) {
           select.classList.remove("active");
         }
       });
     });
   });
 }
-

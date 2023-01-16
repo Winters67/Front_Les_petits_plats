@@ -17,6 +17,15 @@ body {
 .input-group {
   height: 69px;
   margin-left: 40px;
+  width: 80%;
+}
+
+.ms-err-search {
+  display: flex;
+  margin-left: 40px;
+  display: none;
+  margin-top: 10px;
+  width: 100px;
 }
 
 .input-search {
@@ -80,6 +89,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  height: 70px;
 }
 .select-choix-ing input,
 .select-choix-app input,
@@ -165,11 +175,11 @@ body {
 .listOption-ust .listItem {
   margin: 1px;
   padding: 1px;
+  cursor: pointer;
 }
 
 .content {
   display: flex;
-  width: 100%;
 }
 
 .closeModal-ing,
@@ -184,8 +194,6 @@ body {
   display: none;
   position: absolute;
   margin-top: -70px;
-  max-height: 600px;
-  width: 100%;
 }
 
 #appareils {
