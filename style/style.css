@@ -138,6 +138,18 @@ body {
 }
 
 .tagItems {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 0px 0px 40px;
+  padding: 0;
+}
+.tagItems .colorApp {
+  background-color: #68d9a4;
+}
+.tagItems .colorUst {
+  background-color: #ed6454;
+}
+.tagItems span {
   background-color: #3282f7;
   max-width: 100px;
   margin: 5px;
@@ -150,7 +162,15 @@ body {
   align-items: center;
   justify-content: space-around;
   font-size: 14px;
-  margin: 30px 0px 5px 40px;
+  cursor: pointer;
+}
+.tagItems b {
+  align-items: center;
+  margin: 5px;
+}
+.tagItems .fa-regular {
+  margin: 10px;
+  padding: 5px;
 }
 
 .listOption-ing,
@@ -188,7 +208,7 @@ body {
   margin: 5px;
 }
 
-#ingredients {
+.ingredient {
   background-color: #3282f7;
   border-radius: 5px;
   display: none;
@@ -196,7 +216,7 @@ body {
   margin-top: -70px;
 }
 
-#appareils {
+.appareil {
   background-color: #68d9a4;
   border-radius: 5px;
   display: none;
@@ -204,7 +224,7 @@ body {
   margin-top: -70px;
 }
 
-#ustensiles {
+.ustensile {
   background-color: #ed6454;
   border-radius: 5px;
   display: none;
@@ -212,21 +232,21 @@ body {
   margin-top: -70px;
 }
 
-.select-choix-app.active #appareils {
+.select-choix-app.active .appareil {
   display: block;
   position: relative;
   width: 300px;
   height: auto;
 }
 
-.select-choix-ust.active #ustensiles {
+.select-choix-ust.active .ustensile {
   display: block;
   position: relative;
   width: 600px;
   height: auto;
 }
 
-.select-choix-ing.active #ingredients {
+.select-choix-ing.active .ingredient {
   display: block;
   position: relative;
   width: 1300px;

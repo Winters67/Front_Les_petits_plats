@@ -10,18 +10,16 @@ function filterData(e) {
   console.log(searchLetters);
   if (searchLettersNunbers >= 3) {
     search(searchLetters);
-
   }
 }
 
-// condition de recherche + 3 caracteres
-//Function EventInput (Event input -> lancer search())
-//Function AddTags
+
 
 //Function Search (Créer un nouveau tableau de recette)
 function search(value = null) {
+  let newTabRecipes = recipes;
   if (value != null || value != "") {
-    let newTabRecipes = recipes.filter((ele) => {
+     newTabRecipes = recipes.filter((ele) => {
       if (ele.description.toLowerCase().indexOf(value) >= 0) {
         console.log(ele.description);
         return ele.description;
@@ -30,18 +28,15 @@ function search(value = null) {
         return ele.name;
       }
     });
-
-    render(newTabRecipes);
-    console.log(newTabRecipes);
   }
+
+  render(newTabRecipes);
+  console.log(newTabRecipes);
 }
 
 
 
-//newTabRecipes
 
-//champ Coco -> 6 , tag "ail" -> 3, tag "beurre" -> 1
-//Filter les tags (ingredient)
 
 function render(newRecipes) {
   let messError = document.querySelector(".ms-err-search");
@@ -53,4 +48,4 @@ function render(newRecipes) {
   showCards(newRecipes);
 }
 
-//Lancer fonction showCards(NewTabRecipes)
+

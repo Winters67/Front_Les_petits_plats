@@ -12,8 +12,8 @@ export function filtre(recipes) {
     // indgredients[] enleve les doublons
     for (const ingredientList of recette.ingredients) {
       if (!tags.ingredients.includes(ingredientList.ingredient)) {
-        // console.log(ingredientList);
         tags.ingredients.push(ingredientList.ingredient);
+        // console.log(ingredientList);
       }
     }
     // appareils[] enleve les doublons
@@ -31,37 +31,84 @@ export function filtre(recipes) {
   });
 }
 
+
+export function activeClass(selectBtn, classTag) {
+  const closeModal = document.querySelectorAll(".closeModal");
+  const select = document.querySelector(classTag);
+  selectBtn.addEventListener("click", () => {
+    select.classList.toggle("active");
+    closeModal.forEach((element) => {
+      element.addEventListener("click", () => {
+        if (select.classList.toggle("active") == true) {
+          select.classList.remove("active");
+        }
+      });
+    });
+  });
+}
+
 export function showTag(tagsList, classBoxTag) {
   for (const option of tagsList) {
     const select = document.querySelector(classBoxTag);
     let optionElt = document.createElement("li");
     optionElt.setAttribute("class", "listItem");
     optionElt.textContent = option;
-    //Enventlistener (Add_tag)
+
+    optionElt.addEventListener("click", function () {
+      addTag(option, classBoxTag);
+    });
     select.appendChild(optionElt);
-    optionElt.addEventListener("click", addTag(optionElt));
   }
 }
+function addTag(items, classBoxTag) {
+  const select = document.querySelector(".tagItems");
 
-function addTag(item) {
-  if (item =='') {
-    item.classList.toggle("addItem");
-  } else item.classList.remove("addItem");
-}
-//Fucntion add_tag (Event -> close tag)
+  let spanTag = document.createElement("span");
+  spanTag.setAttribute("class", "tagName");
 
-//function close_tag
+  let nameTag = document.createElement("b");
+  nameTag.textContent = items;
 
-const inputTags = document.querySelector(".input-ing");
-inputTags.addEventListener("input", filterTags);
+  let iconClose = document.createElement("i");
+  iconClose.setAttribute("class", "fa-regular fa-circle-xmark fa-xl ");
 
-function filterTags(e) {
-  document.querySelector(".listOption-ing").innerHTML = " ";
-  let searchLetters = e.target.value.toLowerCase();
-  console.log(searchLetters);
-  let newTagsArray = tags.ingredients.filter((data) => {
-    return data.toLowerCase().includes(searchLetters);
+  select.appendChild(spanTag);
+  spanTag.appendChild(nameTag);
+  spanTag.appendChild(iconClose);
+
+  if (classBoxTag == ".listOption-app") {
+    spanTag.setAttribute("class", "colorApp");
+  }
+  if (classBoxTag == ".listOption-ust") {
+    spanTag.setAttribute("class", "colorUst");
+  }
+
+  spanTag.addEventListener("click", function (e) {
+    this.closest("span ").remove();
   });
-  console.log(newTagsArray);
-  showTag(newTagsArray, ".listOption-ing");
+
+  return select;
 }
+
+function filterTags(arrayItems, classBoxTag) {
+  const inputTags = document.querySelector(`#${classBoxTag} input`);
+
+  inputTags.addEventListener("input", (e) => {
+    document.querySelector(`#${classBoxTag} ul`).innerHTML = " ";
+
+    let searchLetters = e.target.value.toLowerCase();
+    console.log(searchLetters);
+
+    let newTagsArray = arrayItems.filter((data) => {
+      return data.toLowerCase().includes(searchLetters);
+    });
+
+    // console.log(newTagsArray);
+    showTag(newTagsArray, ".listOption-ing");
+    showTag(newTagsArray, ".listOption-app");
+    showTag(newTagsArray, ".listOption-ust");
+  });
+}
+filterTags(tags.ingredients, "ingredients");
+filterTags(tags.appliances, "appareils");
+filterTags(tags.ustensils, "ustensiles");
