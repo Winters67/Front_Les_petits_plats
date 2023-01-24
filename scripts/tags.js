@@ -31,7 +31,7 @@ export function filtre(recipes) {
   });
 }
 
-
+// ouverture et fermeture de la modal (ingredients-appareils-ustensiles)
 export function activeClass(selectBtn, classTag) {
   const closeModal = document.querySelectorAll(".closeModal");
   const select = document.querySelector(classTag);
@@ -46,20 +46,53 @@ export function activeClass(selectBtn, classTag) {
     });
   });
 }
-
+// créer & affiche  ingredients/appareils/istensils
 export function showTag(tagsList, classBoxTag) {
   for (const option of tagsList) {
     const select = document.querySelector(classBoxTag);
     let optionElt = document.createElement("li");
-    optionElt.setAttribute("class", "listItem");
+    optionElt.setAttribute("class", "listItem active");
+
     optionElt.textContent = option;
 
     optionElt.addEventListener("click", function () {
+      optionElt.setAttribute("class", "inactive");
+      if (optionElt != "inactive") {
+        optionElt.remove();
+      }
       addTag(option, classBoxTag);
+      console.log(optionElt);
     });
     select.appendChild(optionElt);
   }
 }
+
+//  filtre les tags
+function filterTags(arrayItems, classBoxTag) {
+  const inputTags = document.querySelector(`#${classBoxTag} input`);
+
+  inputTags.addEventListener("input", (e) => {
+    document.querySelector(`#${classBoxTag} ul`).innerHTML = "";
+
+    let searchLetters = e.target.value.toLowerCase();
+    console.log(searchLetters);
+
+    let newTagsArray = arrayItems.filter((data) => {
+      return data.toLowerCase().includes(searchLetters);
+    });
+    console.log(newTagsArray);
+
+    showTag(newTagsArray, ".listOption-ing");
+    showTag(newTagsArray, ".listOption-app");
+    showTag(newTagsArray, ".listOption-ust");
+  });
+}
+
+filterTags(tags.ingredients, "ingredients");
+filterTags(tags.appliances, "appareils");
+filterTags(tags.ustensils, "ustensiles");
+
+// création des tags
 function addTag(items, classBoxTag) {
   const select = document.querySelector(".tagItems");
 
@@ -76,11 +109,14 @@ function addTag(items, classBoxTag) {
   spanTag.appendChild(nameTag);
   spanTag.appendChild(iconClose);
 
+  if (classBoxTag == ".listOption-ing") {
+    spanTag.setAttribute("class", "colorIng tagName");
+  }
   if (classBoxTag == ".listOption-app") {
-    spanTag.setAttribute("class", "colorApp");
+    spanTag.setAttribute("class", "colorApp tagName");
   }
   if (classBoxTag == ".listOption-ust") {
-    spanTag.setAttribute("class", "colorUst");
+    spanTag.setAttribute("class", "colorUst tagName");
   }
 
   spanTag.addEventListener("click", function (e) {
@@ -89,26 +125,3 @@ function addTag(items, classBoxTag) {
 
   return select;
 }
-
-function filterTags(arrayItems, classBoxTag) {
-  const inputTags = document.querySelector(`#${classBoxTag} input`);
-
-  inputTags.addEventListener("input", (e) => {
-    document.querySelector(`#${classBoxTag} ul`).innerHTML = " ";
-
-    let searchLetters = e.target.value.toLowerCase();
-    console.log(searchLetters);
-
-    let newTagsArray = arrayItems.filter((data) => {
-      return data.toLowerCase().includes(searchLetters);
-    });
-
-    // console.log(newTagsArray);
-    showTag(newTagsArray, ".listOption-ing");
-    showTag(newTagsArray, ".listOption-app");
-    showTag(newTagsArray, ".listOption-ust");
-  });
-}
-filterTags(tags.ingredients, "ingredients");
-filterTags(tags.appliances, "appareils");
-filterTags(tags.ustensils, "ustensiles");

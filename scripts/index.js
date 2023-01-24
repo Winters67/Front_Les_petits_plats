@@ -8,11 +8,11 @@ filtre(recipes);
 showCards(recipes);
 
 // affiche les tags
-showTag(tags.ingredients, ".listOption-ing");
-showTag(tags.appliances, ".listOption-app");
+showTag(tags.ingredients, ".listOption-ing")
+showTag(tags.appliances, ".listOption-app")
 showTag(tags.ustensils, ".listOption-ust");
 
-// showTag(tags.ingredients, "ingredients");
+
 
 // menu
 

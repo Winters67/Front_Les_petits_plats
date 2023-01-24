@@ -119,11 +119,15 @@ body {
   flex-wrap: wrap;
   margin: 0px 0px 0px 40px;
   padding: 0;
- 
+
+  .colorIng {
+    background-color: $ingredientsColor;
+  }
+
   .colorApp {
     background-color: $appareilsColor;
   }
-  
+
   .colorUst {
     background-color: $ustensilsColor;
   }
@@ -143,13 +147,12 @@ body {
     font-size: 14px;
     cursor: pointer;
   }
-  
+
   b {
-      align-items: center;
+    align-items: center;
     margin: 5px;
   }
-.fa-regular {
-   
+  .fa-regular {
     margin: 10px;
     padding: 5px;
   }
@@ -178,8 +181,6 @@ body {
     cursor: pointer;
   }
 }
-
-
 
 .content {
   display: flex;

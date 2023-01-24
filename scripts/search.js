@@ -13,13 +13,11 @@ function filterData(e) {
   }
 }
 
-
-
 //Function Search (Créer un nouveau tableau de recette)
 function search(value = null) {
   let newTabRecipes = recipes;
   if (value != null || value != "") {
-     newTabRecipes = recipes.filter((ele) => {
+    newTabRecipes = recipes.filter((ele) => {
       if (ele.description.toLowerCase().indexOf(value) >= 0) {
         console.log(ele.description);
         return ele.description;
@@ -28,15 +26,11 @@ function search(value = null) {
         return ele.name;
       }
     });
+    searchIncludeTags(recipes);
   }
-
   render(newTabRecipes);
   console.log(newTabRecipes);
 }
-
-
-
-
 
 function render(newRecipes) {
   let messError = document.querySelector(".ms-err-search");
@@ -48,4 +42,11 @@ function render(newRecipes) {
   showCards(newRecipes);
 }
 
-
+// affiche les tags choisis dans la console
+function searchIncludeTags(e) {
+  let tagItem = document.querySelectorAll(".tagName b");
+  tagItem.forEach((element) => {
+    let tags = element.textContent;
+    console.log(tags);
+  });
+}
