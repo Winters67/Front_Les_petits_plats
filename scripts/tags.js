@@ -1,4 +1,6 @@
 //Init tag (index)
+import { search } from "./search.js";
+import { recipes } from "../data/recipes.js";
 
 export const tags = {
   ingredients: [],
@@ -7,7 +9,7 @@ export const tags = {
 };
 console.log(tags);
 
-export function filtre(recipes) {
+export function filtre() {
   recipes.forEach((recette) => {
     // indgredients[] enleve les doublons
     for (const ingredientList of recette.ingredients) {
@@ -56,12 +58,12 @@ export function showTag(tagsList, classBoxTag) {
     optionElt.textContent = option;
 
     optionElt.addEventListener("click", function () {
-      optionElt.setAttribute("class", "inactive");
-      if (optionElt != "inactive") {
-        optionElt.remove();
-      }
+      // optionElt.setAttribute("class", "inactive");
+      // if (optionElt != "inactive") {
+      // optionElt.remove();
+      // }
       addTag(option, classBoxTag);
-      console.log(optionElt);
+      // console.log(optionElt);
     });
     select.appendChild(optionElt);
   }
@@ -122,6 +124,9 @@ function addTag(items, classBoxTag) {
   spanTag.addEventListener("click", function (e) {
     this.closest("span ").remove();
   });
+
+  // console.log(recipes);
+  search();
 
   return select;
 }
