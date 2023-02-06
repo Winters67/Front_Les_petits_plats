@@ -50,14 +50,22 @@ body {
   padding-left: 0;
 }
 
+.select-choix-ing .select-btn {
+  background-color: $ingredientsColor;
+}
+.select-choix-app .select-btn {
+  background-color: $appareilsColor;
+}
+.select-choix-ust .select-btn {
+  background-color: $ustensilsColor;
+}
+
 .select-choix-ing,
 .select-choix-app,
 .select-choix-ust {
   margin: 40px;
 
-  .select-btn-ing,
-  .select-btn-app,
-  .select-btn-ust {
+  .select-btn {
     color: #ffffff;
     display: flex;
     justify-content: space-between;
@@ -66,16 +74,6 @@ body {
     width: 170px;
     height: 69px;
     border-radius: 5px;
-  }
-
-  .select-btn-ing {
-    background-color: $ingredientsColor;
-  }
-  .select-btn-app {
-    background-color: $appareilsColor;
-  }
-  .select-btn-ust {
-    background-color: $ustensilsColor;
   }
 
   .search-design {

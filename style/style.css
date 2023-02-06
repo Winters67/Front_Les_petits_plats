@@ -42,20 +42,26 @@ body {
   padding-left: 0;
 }
 
+.select-choix-ing .select-btn {
+  background-color: #3282f7;
+}
+
+.select-choix-app .select-btn {
+  background-color: #68d9a4;
+}
+
+.select-choix-ust .select-btn {
+  background-color: #ed6454;
+}
+
 .select-choix-ing,
 .select-choix-app,
 .select-choix-ust {
   margin: 40px;
 }
-.select-choix-ing .select-btn-ing,
-.select-choix-ing .select-btn-app,
-.select-choix-ing .select-btn-ust,
-.select-choix-app .select-btn-ing,
-.select-choix-app .select-btn-app,
-.select-choix-app .select-btn-ust,
-.select-choix-ust .select-btn-ing,
-.select-choix-ust .select-btn-app,
-.select-choix-ust .select-btn-ust {
+.select-choix-ing .select-btn,
+.select-choix-app .select-btn,
+.select-choix-ust .select-btn {
   color: #ffffff;
   display: flex;
   justify-content: space-between;
@@ -64,21 +70,6 @@ body {
   width: 170px;
   height: 69px;
   border-radius: 5px;
-}
-.select-choix-ing .select-btn-ing,
-.select-choix-app .select-btn-ing,
-.select-choix-ust .select-btn-ing {
-  background-color: #3282f7;
-}
-.select-choix-ing .select-btn-app,
-.select-choix-app .select-btn-app,
-.select-choix-ust .select-btn-app {
-  background-color: #68d9a4;
-}
-.select-choix-ing .select-btn-ust,
-.select-choix-app .select-btn-ust,
-.select-choix-ust .select-btn-ust {
-  background-color: #ed6454;
 }
 .select-choix-ing .search-design,
 .select-choix-app .search-design,

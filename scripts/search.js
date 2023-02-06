@@ -1,5 +1,6 @@
 import { recipes } from "../data/recipes.js";
 import { showCards } from "../scripts/card.js";
+import { showTag, filtre } from "../scripts/tags.js";
 
 const inputField = document.getElementById("search-input");
 inputField.addEventListener("keyup", filterData);
@@ -31,11 +32,18 @@ export function search(value = null) {
   }
   console.log(newTabRecipes);
   newTabRecipes = searchIncludeTags(newTabRecipes);
+
   renderRecipes(newTabRecipes);
   // console.log(newTabRecipes);
 }
-
+// filtre les tags
 function renderRecipes(newRecipes) {
+  const tags = filtre(newRecipes);
+  console.log(tags);
+  showTag(tags.ingredients, "ingredients");
+  showTag(tags.appliances, "appareils");
+  showTag(tags.ustensils, "ustensiles");
+
   let messError = document.querySelector(".ms-err-search");
   if (newRecipes != "") {
     messError.setAttribute("style", "display:none");
@@ -45,7 +53,8 @@ function renderRecipes(newRecipes) {
 
   showCards(newRecipes);
 }
-// affiche les tags choisis
+// affiche les tags choisis dans la console
+
 function searchIncludeTags(recipes) {
   let newTagsArrayRecipes = recipes;
   console.log(newTagsArrayRecipes);
@@ -55,17 +64,13 @@ function searchIncludeTags(recipes) {
     console.log(tagListIng);
     for (const tagIng of tagListIng) {
       let tagsIng = tagIng.textContent.toLowerCase();
-      console.log(tagsIng);
+      // console.log(tagsIng);
 
       newTagsArrayRecipes = newTagsArrayRecipes.filter((dataRecipe) => {
-        // console.log(
-        //   JSON.stringify(dataRecipe.ingredients).toLowerCase().includes(tagsIng)
-        // );
         return JSON.stringify(dataRecipe.ingredients)
           .toLowerCase()
           .includes(tagsIng);
       });
-    
     }
   }
 
@@ -74,10 +79,9 @@ function searchIncludeTags(recipes) {
     for (const tagApp of tagListApp) {
       console.log(tagListApp);
       let tagsApp = tagApp.textContent.toLowerCase();
-      console.log(tagsApp);
+      // console.log(tagsApp);
 
       newTagsArrayRecipes = newTagsArrayRecipes.filter((dataRecipe) => {
-        // console.log(dataRecipe.appliance.toLowerCase().includes(tagsApp));
         return dataRecipe.appliance.toLowerCase().includes(tagsApp);
       });
     }
@@ -88,11 +92,9 @@ function searchIncludeTags(recipes) {
     for (const tagUst of tagListUst) {
       console.log(tagListUst);
       let tagsUst = tagUst.textContent.toLowerCase();
-      console.log(tagsUst);
+      // console.log(tagsUst);
 
       newTagsArrayRecipes = newTagsArrayRecipes.filter((ele) => {
-        // console.log(ele.ustensils.toString().toLowerCase().includes(tagsUst));
-
         return ele.ustensils.toString().toLowerCase().includes(tagsUst);
       });
     }
