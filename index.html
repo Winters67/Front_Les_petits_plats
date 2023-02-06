@@ -16,106 +16,106 @@
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <title>Les petits plats</title>
   </head>
-  <!-- menu navigation -->
-  <nav>
-    <div class="logo">
-      <img src="/assets/icons/logo.png" alt="logo les petits plats" />
-      <h1>Les petits plats</h1>
-    </div>
-    <!-- input de recherche -->
-
-    <div class="input-group">
-      <input
-        class="form-control border-0 bg-light p-10"
-        type="search"
-        placeholder="Rechercher une recette"
-        id="search-input"
-      />
-      <span class="input-search bg-light">
-        <i class="fa fa-search fa-lg"></i>
-      </span>
-    </div>
-    <span class="ms-err-search alert alert-danger w-50"></span>
-    <!-- tags de filtre  -->
-    <div class="tagItems">
-      <!-- <span>Ingredients</span>
-      <i class="fa-regular fa-circle-xmark"></i> -->
-    </div>
-
-    <!-- bouton select  -->
-    <!-- ingredients -->
-    <section class="nav">
-      <div class="select-choix-ing select-main" id="ingredients">
-        <div class="select-btn">
-          <span>Ingredients</span>
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-        <div class="ingredient browser-default custom-select">
-          <div class="content">
-            <div class="search-design">
-              <input
-                class="input-ing"
-                type="text"
-                placeholder="Rechercher un ingrédient"
-              />
-              <div class="closeModal">
-                <i class="fa-solid fa-chevron-up"></i>
-              </div>
-            </div>
-          </div>
-          <ul class="listOption-ing"></ul>
-        </div>
-      </div>
-      <!-- appareils -->
-      <div class="select-choix-app select-main" id="appareils">
-        <div class="select-btn">
-          <span>Appareils</span>
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-        <div class="appareil browser-default custom-select">
-          <div class="content">
-            <div class="search-design">
-              <input
-                class="input-app"
-                type="text"
-                placeholder="Rechercher un appareil"
-              />
-              <div class="closeModal">
-                <i class="fa-solid fa-chevron-up"></i>
-              </div>
-            </div>
-          </div>
-          <ul class="listOption-app"></ul>
-        </div>
-      </div>
-      <!-- ustensiles -->
-      <div class="select-choix-ust select-main" id="ustensiles">
-        <div class="select-btn">
-          <span>Ustensiles</span>
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-        <div class="ustensile browser-default custom-select">
-          <div class="content">
-            <div class="search-design">
-              <input
-                class="input-ust"
-                type="text"
-                placeholder="Rechercher un ustensile"
-              />
-              <div class="closeModal">
-                <i class="fa-solid fa-chevron-up"></i>
-              </div>
-            </div>
-          </div>
-          <ul class="listOption-ust"></ul>
-        </div>
-      </div>
-    </section>
-  </nav>
   <body>
+    <!-- menu navigation -->
+    <nav>
+      <div class="logo">
+        <img src="/assets/icons/logo.png" alt="logo les petits plats" />
+        <h1>Les petits plats</h1>
+      </div>
+      <!-- input de recherche -->
+
+      <div class="input-group">
+        <input
+          class="form-control border-0 bg-light p-10"
+          type="search"
+          placeholder="Rechercher une recette"
+          id="search-input"
+        />
+        <span class="input-search bg-light">
+          <i class="fa fa-search fa-lg"></i>
+        </span>
+      </div>
+      <span class="ms-err-search alert alert-danger w-50"></span>
+      <!-- tags de filtre  -->
+      <div class="tagItems">
+        <!-- <span>Ingredients</span>
+        <i class="fa-regular fa-circle-xmark"></i> -->
+      </div>
+
+      <!-- bouton select  -->
+      <!-- ingredients -->
+      <section class="nav">
+        <div class="select-choix-ing select-main" id="ingredients">
+          <div class="select-btn">
+            <span>Ingredients</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="ingredient browser-default custom-select">
+            <div class="content">
+              <div class="search-design">
+                <input
+                  class="input-ing"
+                  type="text"
+                  placeholder="Rechercher un ingrédient"
+                />
+                <div class="closeModal">
+                  <i class="fa-solid fa-chevron-up"></i>
+                </div>
+              </div>
+            </div>
+            <ul class="listOption-ing"></ul>
+          </div>
+        </div>
+        <!-- appareils -->
+        <div class="select-choix-app select-main" id="appareils">
+          <div class="select-btn">
+            <span>Appareils</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="appareil browser-default custom-select">
+            <div class="content">
+              <div class="search-design">
+                <input
+                  class="input-app"
+                  type="text"
+                  placeholder="Rechercher un appareil"
+                />
+                <div class="closeModal">
+                  <i class="fa-solid fa-chevron-up"></i>
+                </div>
+              </div>
+            </div>
+            <ul class="listOption-app"></ul>
+          </div>
+        </div>
+        <!-- ustensiles -->
+        <div class="select-choix-ust select-main" id="ustensiles">
+          <div class="select-btn">
+            <span>Ustensiles</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="ustensile browser-default custom-select">
+            <div class="content">
+              <div class="search-design">
+                <input
+                  class="input-ust"
+                  type="text"
+                  placeholder="Rechercher un ustensile"
+                />
+                <div class="closeModal">
+                  <i class="fa-solid fa-chevron-up"></i>
+                </div>
+              </div>
+            </div>
+            <ul class="listOption-ust"></ul>
+          </div>
+        </div>
+      </section>
+    </nav>
     <section id="card-item" class="row"></section>
+    <script src="/scripts/index.js" type="module"></script>
+    <script src="/scripts/search.js" type="module"></script>
+    <script src="/data/recipes.js" type="module"></script>
   </body>
-  <script src="/scripts/index.js" type="module"></script>
-  <script src="/scripts/search.js" type="module"></script>
-  <script src="/data/recipes.js" type="module"></script>
 </html>

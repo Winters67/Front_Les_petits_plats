@@ -2,9 +2,11 @@ import { recipes } from "../data/recipes.js";
 import { showCards } from "../scripts/card.js";
 import { showTag, filtre } from "../scripts/tags.js";
 
+// ecouteur d'input et excute (filterData)
 const inputField = document.getElementById("search-input");
 inputField.addEventListener("keyup", filterData);
 
+// Execute la recherche à partir de 3 lettres
 function filterData(e) {
   let searchLetters = e.target.value.toLowerCase();
   const searchLettersNunbers = searchLetters.length;
@@ -15,6 +17,7 @@ function filterData(e) {
 }
 
 //Function Search (Créer un nouveau tableau de recette)
+// execute un comparatif avec description ,nom et ingtedients
 export function search(value = null) {
   let newTabRecipes = recipes;
   // console.log(newTabRecipes);
@@ -26,7 +29,10 @@ export function search(value = null) {
         return ele.description;
       } else if (ele.name.toLowerCase().indexOf(value) >= 0) {
         console.log(ele.name);
-        return ele.name;
+      } else if (
+        JSON.stringify(ele.ingredients).toLowerCase().indexOf(value) >= 0
+      ) {
+        return ele.ingredients;
       }
     });
   }
@@ -49,12 +55,13 @@ function renderRecipes(newRecipes) {
     messError.setAttribute("style", "display:none");
     showCards(newRecipes);
   } else messError.setAttribute("style", "display:block");
-  messError.textContent = "Oups pas de correspondance à votre recherche !";
+  messError.textContent =
+    "« Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc";
 
   showCards(newRecipes);
 }
-// affiche les tags choisis dans la console
 
+// filtre les tags &  affiche les recettes qui corresponds
 function searchIncludeTags(recipes) {
   let newTagsArrayRecipes = recipes;
   console.log(newTagsArrayRecipes);

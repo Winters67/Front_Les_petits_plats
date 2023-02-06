@@ -36,8 +36,11 @@ export function filtre(recipes) {
 // initTag(tagsList, "ingredients");
 
 export function initTag(tagsList, tagName) {
+  // créer & affiche  ingredients/appareils/istensils
   showTag(tagsList, tagName);
+  // ouverture et fermeture de la modal (ingredients-appareils-ustensiles)
   activeClass(tagName);
+  //  filtre les tags
   filterTags(tagsList, tagName);
 }
 
@@ -71,10 +74,6 @@ export function showTag(tagsList, tagName) {
     optionElt.textContent = option;
 
     optionElt.addEventListener("click", function () {
-      // optionElt.setAttribute("class", "inactive");
-      // if (optionElt != "inactive") {
-      // optionElt.remove();
-      // }
       addTag(option, select);
 
       // console.log(optionElt);
