@@ -1,6 +1,10 @@
 export { showCard, showCards };
 
-// crée la srtructure des cartes menus
+/**
+ *Fonction qui créer les cartes de recette
+ * @param {Object} recette
+ * @returns displayCards
+ */
 function showCard(recette) {
   const clock = `/assets/icons/clock-regular.svg`;
   const picture = `/assets/images/wendy.jpg`;
@@ -32,7 +36,6 @@ function showCard(recette) {
   descriptionRecette.setAttribute("class", "card-text w-50");
   descriptionRecette.textContent = recette.description;
 
-  // affichage des Ingredients dans les cartes
   const listIngredients = document.createElement("div");
   listIngredients.setAttribute("style", "padding-right:10px");
   for (const recetteIng of recette.ingredients) {
@@ -70,15 +73,16 @@ function showCard(recette) {
   return displayCards;
 }
 
-// affiche les recettes
+/**
+ *
+ * @param {Array} arrayRecipes
+ */
 function showCards(arrayRecipes) {
   const displayCard = document.querySelector("#card-item");
   displayCard.innerHTML = "";
-  // for (const recipe of arrayRecipes) {
-  //   displayCard.appendChild(showCard(recipe));
-  // }
 
   arrayRecipes.forEach((recipe) => {
     displayCard.appendChild(showCard(recipe));
   });
 }
+
