@@ -1,7 +1,6 @@
 //Init tag (index)
 import { search } from "./search.js";
 /**
- *
  * @param {object} recipes
  * @returns filtres les tags , supprimes les doublons et les pousse dans le tableau
  */
@@ -74,11 +73,10 @@ export function activeClass(tagName) {
   });
 }
 
-
 /**
  *  créer & affiche  ingredients/appareils/istensils
- * @param {object} tagsList 
- * @param {string} tagName 
+ * @param {object} tagsList
+ * @param {string} tagName
  */
 export function showTag(tagsList, tagName) {
   const select = document.querySelector(`#${tagName} ul`);
@@ -99,11 +97,10 @@ export function showTag(tagsList, tagName) {
   }
 }
 
-
 /**
  * filtre les tags
- * @param {Array} arrayItems 
- * @param {string} classBoxTag 
+ * @param {Array} arrayItems
+ * @param {string} classBoxTag
  */
 function filterTags(arrayItems, classBoxTag) {
   const inputTags = document.querySelector(`#${classBoxTag} input`);
@@ -124,9 +121,9 @@ function filterTags(arrayItems, classBoxTag) {
 }
 
 /**
- * 
- * @param {string} items 
- * @param {Array} Liste 
+ *
+ * @param {string} items
+ * @param {Array} Liste
  * @returns Permet la création des tags et l'affectation de la bonne couleur
  */
 function addTag(items, Liste) {
