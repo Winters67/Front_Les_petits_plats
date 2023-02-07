@@ -78,11 +78,6 @@ function showCards(arrayRecipes) {
   //   displayCard.appendChild(showCard(recipe));
   // }
 
-  // for (let index = 0; index < arrayRecipes.length; index++) {
-  //   const recipe = arrayRecipes[index];
-  //   displayCard.appendChild(showCard(recipe));
-  // }
-
   arrayRecipes.forEach((recipe) => {
     displayCard.appendChild(showCard(recipe));
   });
