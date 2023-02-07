@@ -73,13 +73,13 @@ function showCard(recette) {
   return displayCards;
 }
 
-/**
- *
- * @param {Array} arrayRecipes
- */
+// affiche les recettes
 function showCards(arrayRecipes) {
   const displayCard = document.querySelector("#card-item");
   displayCard.innerHTML = "";
+  // for (const recipe of arrayRecipes) {
+  //   displayCard.appendChild(showCard(recipe));
+  // }
 
   arrayRecipes.forEach((recipe) => {
     displayCard.appendChild(showCard(recipe));
