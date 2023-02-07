@@ -1,6 +1,6 @@
 export { showCard, showCards };
 
-// crée la srtructure des cartes menus
+// crée la srtructure des cartes menus 
 function showCard(recette) {
   const clock = `/assets/icons/clock-regular.svg`;
   const picture = `/assets/images/wendy.jpg`;
@@ -70,15 +70,15 @@ function showCard(recette) {
   return displayCards;
 }
 
-// affiche les recettes
+// affiche les recettes 
 function showCards(arrayRecipes) {
   const displayCard = document.querySelector("#card-item");
   displayCard.innerHTML = "";
-  // for (const recipe of arrayRecipes) {
+  for (const recipe of arrayRecipes) {
+    displayCard.appendChild(showCard(recipe));
+  }
+  // for (let index = 0; index < arrayRecipes.length; index++) {
+  //   const recipe = arrayRecipes[index];
   //   displayCard.appendChild(showCard(recipe));
   // }
-
-  arrayRecipes.forEach((recipe) => {
-    displayCard.appendChild(showCard(recipe));
-  });
 }

@@ -15,6 +15,7 @@ function filterData(e) {
     search(searchLetters);
   }
 }
+
 //Function Search (Créer un nouveau tableau de recette)
 // execute un comparatif avec description ,nom et ingtedients
 export function search(value = null) {
@@ -22,11 +23,7 @@ export function search(value = null) {
   // console.log(newTabRecipes);
   if (value != null) {
     // console.log(value);
-    
-
-   
-    for (let newTabRecipes = 0; newTabRecipes < recipes.length; index++) {
-      const ele = newTabRecipes[index];
+    newTabRecipes = recipes.filter((ele) => {
       if (ele.description.toLowerCase().indexOf(value) >= 0) {
         console.log(ele.description.toLowerCase());
         return ele.description;
@@ -37,7 +34,7 @@ export function search(value = null) {
       ) {
         return ele.ingredients;
       }
-    };
+    });
   }
   console.log(newTabRecipes);
   newTabRecipes = searchIncludeTags(newTabRecipes);
@@ -112,4 +109,3 @@ function searchIncludeTags(recipes) {
   console.log(newTagsArrayRecipes);
   return newTagsArrayRecipes;
 }
-
