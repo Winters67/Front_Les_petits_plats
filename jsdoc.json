@@ -1,0 +1,22 @@
+{
+   
+    "source": {
+        "include": ["scripts/card.js" ,"scripts/index.js" ,"scripts/search.js" ,"scripts/tags.js" ],
+        "includePattern": ".js$",
+        "excludePattern": "(nodes_modules/docs)"
+    },
+    "sourceType": "module",
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc","closure"]
+    },
+    "templates": {
+        "cleverLinks": true,
+        "monospaceLinks": true
+    },
+    "opts": {
+        "recurse": true,
+    "destination" : "./docs/",
+    "readme" : "./readme.md"
+    }
+}

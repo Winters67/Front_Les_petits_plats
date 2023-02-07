@@ -1,12 +1,17 @@
+
 import { recipes } from "../data/recipes.js";
 import { showCards } from "../scripts/card.js";
 import { showTag, filtre } from "../scripts/tags.js";
 
-// ecouteur d'input et excute (filterData)
 const inputField = document.getElementById("search-input");
 inputField.addEventListener("keyup", filterData);
 
-// Execute la recherche à partir de 3 lettres
+//
+/**
+ * Valeur de input
+ * Execute la recherche à partir de 3 lettres
+ * @param {string} e
+ */
 function filterData(e) {
   let searchLetters = e.target.value.toLowerCase();
   const searchLettersNunbers = searchLetters.length;
@@ -16,8 +21,11 @@ function filterData(e) {
   }
 }
 
-//Function Search (Créer un nouveau tableau de recette)
-// execute un comparatif avec description ,nom et ingtedients
+/**
+ * Function Search (Créer un nouveau tableau de recette)
+ * execute un comparatif avec description ,nom et ingtedients
+ * @param {boolean} value
+ */
 export function search(value = null) {
   let newTabRecipes = recipes;
   // console.log(newTabRecipes);
@@ -36,13 +44,19 @@ export function search(value = null) {
       }
     });
   }
+
   console.log(newTabRecipes);
   newTabRecipes = searchIncludeTags(newTabRecipes);
 
   renderRecipes(newTabRecipes);
   // console.log(newTabRecipes);
 }
-// filtre les tags
+
+/**
+ * function qui nous donne le rendu des tags filtrés ainsi que les recettes
+ *  et nous renvoie un message d'erreur dans le cas écheant
+ * @param {Array} newRecipes
+ */
 function renderRecipes(newRecipes) {
   const tags = filtre(newRecipes);
   console.log(tags);
@@ -61,7 +75,11 @@ function renderRecipes(newRecipes) {
   showCards(newRecipes);
 }
 
-// filtre les tags &  affiche les recettes qui corresponds
+/**
+ * filtre les tags & affiche les recettes qui corresponds
+ * @param {Array} recipes
+ * @returns [ingredients] [appareils] [ustensiles] filtrés en fonction des recettes restantes
+ */
 function searchIncludeTags(recipes) {
   let newTagsArrayRecipes = recipes;
   console.log(newTagsArrayRecipes);

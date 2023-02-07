@@ -1,6 +1,9 @@
 //Init tag (index)
 import { search } from "./search.js";
-
+/**
+ * @param {object} recipes
+ * @returns filtres les tags , supprimes les doublons et les pousse dans le tableau
+ */
 export function filtre(recipes) {
   const tags = {
     ingredients: [],
@@ -35,6 +38,11 @@ export function filtre(recipes) {
 
 // initTag(tagsList, "ingredients");
 
+/**
+ * function init qui nous permet d'automatiser l'index.js
+ * @param {Object} tagsList
+ * @param {Array} tagName
+ */
 export function initTag(tagsList, tagName) {
   // créer & affiche  ingredients/appareils/istensils
   showTag(tagsList, tagName);
@@ -44,7 +52,10 @@ export function initTag(tagsList, tagName) {
   filterTags(tagsList, tagName);
 }
 
-// ouverture et fermeture de la modal (ingredients-appareils-ustensiles)
+/**
+ * ouverture et fermeture de la modal (ingredients-appareils-ustensiles)
+ * @param {string} tagName
+ */
 export function activeClass(tagName) {
   const select = document.getElementById(tagName);
   const selectBtn = document.querySelector(`#${tagName} .select-btn`);
@@ -62,7 +73,11 @@ export function activeClass(tagName) {
   });
 }
 
-// créer & affiche  ingredients/appareils/istensils
+/**
+ *  créer & affiche  ingredients/appareils/istensils
+ * @param {object} tagsList
+ * @param {string} tagName
+ */
 export function showTag(tagsList, tagName) {
   const select = document.querySelector(`#${tagName} ul`);
   select.innerHTML = "";
@@ -82,7 +97,11 @@ export function showTag(tagsList, tagName) {
   }
 }
 
-//  filtre les tags
+/**
+ * filtre les tags
+ * @param {Array} arrayItems
+ * @param {string} classBoxTag
+ */
 function filterTags(arrayItems, classBoxTag) {
   const inputTags = document.querySelector(`#${classBoxTag} input`);
 
@@ -101,7 +120,12 @@ function filterTags(arrayItems, classBoxTag) {
   });
 }
 
-// création des tags
+/**
+ *
+ * @param {string} items
+ * @param {Array} Liste
+ * @returns Permet la création des tags et l'affectation de la bonne couleur
+ */
 function addTag(items, Liste) {
   const select = document.querySelector(".tagItems");
 
