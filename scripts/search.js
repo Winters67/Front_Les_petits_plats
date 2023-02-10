@@ -30,20 +30,22 @@ export function search(value = null) {
   let newTabRecipes = recipes;
   // console.log(newTabRecipes);
   if (value != null) {
-    newTabRecipes = recipes.filter((ele) => {
+    let newTab = [];
+    for (const ele of newTabRecipes) {
       if (ele.description.toLowerCase().indexOf(value) >= 0) {
         console.log(ele.description.toLowerCase());
-        return ele.description;
+        newTab.push(ele);
       } else if (ele.name.toLowerCase().indexOf(value) >= 0) {
         console.log(ele.name);
+        newTab.push(ele);
       } else if (
         JSON.stringify(ele.ingredients).toLowerCase().indexOf(value) >= 0
       ) {
-        return ele.ingredients;
+        newTab.push(ele);
       }
-    });
+    }
+    newTabRecipes = newTab;
   }
-
   console.log(newTabRecipes);
   newTabRecipes = searchIncludeTags(newTabRecipes);
 
