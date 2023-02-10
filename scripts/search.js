@@ -1,4 +1,3 @@
-
 import { recipes } from "../data/recipes.js";
 import { showCards } from "../scripts/card.js";
 import { showTag, filtre } from "../scripts/tags.js";
@@ -25,12 +24,12 @@ function filterData(e) {
  * Function Search (Créer un nouveau tableau de recette)
  * execute un comparatif avec description ,nom et ingtedients
  * @param {boolean} value
+ *
  */
 export function search(value = null) {
   let newTabRecipes = recipes;
   // console.log(newTabRecipes);
   if (value != null) {
-    // console.log(value);
     newTabRecipes = recipes.filter((ele) => {
       if (ele.description.toLowerCase().indexOf(value) >= 0) {
         console.log(ele.description.toLowerCase());
@@ -49,7 +48,7 @@ export function search(value = null) {
   newTabRecipes = searchIncludeTags(newTabRecipes);
 
   renderRecipes(newTabRecipes);
-  // console.log(newTabRecipes);
+  console.log(newTabRecipes);
 }
 
 /**
